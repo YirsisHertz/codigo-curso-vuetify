@@ -1,22 +1,18 @@
 <script setup lang="ts">
-const props = defineProps({
-  handleResult: {
-    required: true,
-    type: Function,
-  },
-});
+import { calculatorStore } from "../stores/calculatorStore.ts";
 </script>
+
 <template>
   <v-col class="text-center my-5" cols="6">
     <v-btn
-      @click="props.handleResult"
-      rounded
-      variant="flat"
-      size="x-large"
+      @click="calculatorStore.handleResult()"
       color="orange-accent-4"
+      variant="flat"
+      rounded
+      size="x-large"
       class="font-weight-bold w-100"
     >
-      =
+      <slot></slot>
     </v-btn>
   </v-col>
 </template>

@@ -1,12 +1,10 @@
-<script setup lang="ts">
+<script lang="ts" setup>
+import { calculatorStore } from "../stores/calculatorStore.ts";
+
 const props = defineProps({
   value: {
     required: true,
     type: [Number, String],
-  },
-  handleAdd: {
-    required: true,
-    type: Function,
   },
 });
 </script>
@@ -14,7 +12,7 @@ const props = defineProps({
 <template>
   <v-col class="text-center my-5" cols="3">
     <v-btn
-      @click="props.handleAdd"
+      @click="calculatorStore.handleAddValue(props.value)"
       rounded
       variant="text"
       size="x-large"
